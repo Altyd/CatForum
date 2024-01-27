@@ -1,0 +1,98 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Thread 1</title>
+    <script src="reply.js" defer></script>
+</head>
+<body>
+
+<div class="thread-container">
+    <h1>Thread 1 Title</h1>
+
+    <div class="thread-content">
+        <!-- Full thread content goes here -->
+        <p>This is the full content of Thread 1.</p>
+        <!-- Display replies -->
+        <div class="replies" id="replies-container">
+            <!-- Replies will be dynamically added here -->
+            <!-- <p>User1: This is a reply.</p> -->
+        </div>
+
+        <!-- Reply form -->
+        <form id="reply-form" class="reply-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            <label for="reply-text">Add a reply:</label>
+            <textarea id="reply-text" name="reply-text" rows="4" placeholder="Type your reply here" required></textarea>
+            <button class="submit-reply" onclick="updateGist()">Submit Reply</button>
+        </form>
+    </div>
+</div>
+
+<script src="reply.js" defer></script>
+<script>
+// Async function to update Gist
+async function updateGist() {
+    // Specify your Gist ID and GitHub token
+    const gistId = 'baf0e63608ec96905283d15949cb3271';
+    const accessToken = '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';
+    // URL for updating a Gist
+    const updateUrl = `https://api.github.com/gists/${gistId}`;
+
+    try {
+        // Fetch existing Gist content
+        const existingGist = await fetch(updateUrl, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        }).then(response => response.json());
+
+        // Parse the existing content as JSON
+        const existingContentArray = existingGist.files['file.txt'] ? JSON.parse(existingGist.files['file.txt'].content) : [];
+
+        // Get the username and text from the form
+        const username = document.getElementById('username').value;
+        const newContent = document.getElementById('reply-text').value;
+
+        // Add the new reply to the existing content array
+        existingContentArray.push({
+            "username": username,
+            "text": newContent
+        });
+
+        // Update the Gist with the modified content
+        existingGist.files['file.txt'] = {
+            content: JSON.stringify(existingContentArray, null, 2),
+        };
+
+        // Make a PATCH request to update the Gist
+        const response = await fetch(updateUrl, {
+            method: 'PATCH',
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(existingGist),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to update Gist: ${response.statusText}`);
+        }
+
+        const updatedGist = await response.json();
+        console.log('Gist updated successfully:', updatedGist);
+        alert('Gist updated successfully!');
+    } catch (error) {
+        console.error('Error updating Gist:', error.message);
+        alert('Error updating Gist. Check the console for details.');
+    }
+}
+
+  </script>
+</body>
+</html>

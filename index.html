@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>WeCAT Forum</title>
+</head>
+<body>
+
+<div class="forum-container">
+    <h1>WeCAT Forum</h1>
+    <div class="container">
+        <div class="forum-box">
+            <h2>World's First and Most Exclusive Grade 11 Cat Forum</h2>
+            <p>Join us in discussing anything CAT related with fellow Grade 11 enthusiasts!</p>
+            <p>🐾 Ask questions about computers, input devices or even Cats! 🐾</p>
+        </div>
+    </div>
+    <div class="buttons">
+        <a href="contact.html"><button>Github</button></a>
+        <a href="credits.html"><button>Credits</button></a>
+    </div>
+    
+    <div class="categories">
+        <h2 onclick="showThreads('CatQuestions')">Cat Questions</h2>
+        <div id="CatQuestions" class="threads" style="display:none;">
+            <a href="thread1.html"><h3>Thread 1 Title</h3></a>
+            <a href="thread2.html"><h3>Thread 2 Title</h3></a>
+            <a href="thread3.html"><h3>Thread 3 Title</h3></a>
+            <a href="thread4.html"><h3>Thread 4 Title</h3></a>
+            <!-- Add more thread titles as needed -->
+        </div>
+        
+        <h2 onclick="showThreads('BobQuestions')">Bob Questions</h2>
+        <div id="BobQuestions" class="threads" style="display:none;">
+            <a href="thread1.html"><h3>What hairstyle does bob have?</h3></a>
+            <a href="thread2.html"><h3>Is bob married?</h3></a>
+            <a href="thread3.html"><h3>Is bob real?</h3></a>
+            <a href="thread4.html"><h3>Thread 4 Title</h3></a>
+            <!-- Threads related to Bob Questions will be displayed here -->
+        </div>
+        
+        <!-- Add more categories and their respective threads as needed -->
+    </div>
+
+</div>
+
+<script>
+    function showThreads(category) {
+        // Hide all thread divs
+        var threadDivs = document.querySelectorAll('.threads');
+        threadDivs.forEach(function(div) {
+            div.style.display = 'none';
+        });
+
+        // Show the selected category's thread div
+        var selectedCategoryDiv = document.getElementById(category);
+        if (selectedCategoryDiv) {
+            selectedCategoryDiv.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
