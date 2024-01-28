@@ -38,7 +38,12 @@ h1, h3 {
 .replies {
     margin-top: 20px;
 }
-
+.categories h2:hover {
+    color: #333; /* Change to desired hover color */
+}
+.threads a:hover {
+    color: #0f4; /* Change to desired hover color */
+}
 .reply {
     border: 1px solid #555;
     padding: 10px;

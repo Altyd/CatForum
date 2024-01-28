@@ -40,7 +40,7 @@
 async function updateGist() {
     // Specify your Gist ID and GitHub token
     const gistId = 'baf0e63608ec96905283d15949cb3271';
-    const accessToken = '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';
+    const accessToken = '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';
     // URL for updating a Gist
     const updateUrl = `https://api.github.com/gists/${gistId}`;
 
@@ -81,15 +81,15 @@ async function updateGist() {
         });
 
         if (!response.ok) {
-            throw new Error(`Failed to update Gist: ${response.statusText}`);
+            throw new Error(`Failed to update replies: ${response.statusText}`);
         }
 
         const updatedGist = await response.json();
         console.log('Gist updated successfully:', updatedGist);
-        alert('Gist updated successfully!');
+        alert('New reply added successfully!');
     } catch (error) {
         console.error('Error updating Gist:', error.message);
-        alert('Error updating Gist. Check the console for details.');
+        alert('Error check the console for details.');
     }
 }
 
