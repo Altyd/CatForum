@@ -1,7 +1,14 @@
 // reply.js
+function getGistId() {
+    const threadContainer = document.querySelector('.thread-container');
+    return threadContainer ? threadContainer.dataset.gistId : null;
+}
+
 async function fetchJsonData() {
     try {
-        const response = await fetch('https://gist.githubusercontent.com/Altyd/baf0e63608ec96905283d15949cb3271/raw?v=' + Math.random());
+        const gistId = getGistId();
+        //const response = await fetch('https://gist.githubusercontent.com/Altyd/baf0e63608ec96905283d15949cb3271/raw?v=' + Math.random());
+        const response = await fetch(`https://gist.githubusercontent.com/Altyd/${gistId}/raw?v=${Math.random()}`);
         const jsonData = await response.json();
         return jsonData;
     } catch (error) {
@@ -21,7 +28,8 @@ async function renderReplies() {
     const repliesContainer = document.getElementById('replies-container');
 
     // Fetch JSON data
-    const jsonDataURL = 'https://gist.githubusercontent.com/Altyd/baf0e63608ec96905283d15949cb3271/raw';
+    //const jsonDataURL = `https://gist.githubusercontent.com/Altyd/${gistId}/raw`;
+    //const jsonDataURL = 'https://gist.githubusercontent.com/Altyd/${gistId}/raw';
     const jsonData = await fetchJsonData();
 
     // Check if JSON data is available

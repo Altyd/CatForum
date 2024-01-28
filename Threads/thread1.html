@@ -11,16 +11,17 @@
 </head>
 <body>
 
-<div class="thread-container">
+<div class="thread-container"data-gist-id="baf0e63608ec96905283d15949cb3271">
     <h1>Thread 1 Title</h1>
 
     <div class="thread-content">
         <!-- Full thread content goes here -->
         <p>This is the full content of Thread 1.</p>
         <!-- Display replies -->
+        <p> </p>
+        <!-- <p>User1: This is a reply.</p> -->
         <div class="replies" id="replies-container">
             <!-- Replies will be dynamically added here -->
-            <!-- <p>User1: This is a reply.</p> -->
         </div>
 
         <!-- Reply form -->
@@ -40,7 +41,7 @@
 async function updateGist() {
     // Specify your Gist ID and GitHub token
     const gistId = 'baf0e63608ec96905283d15949cb3271';
-    const accessToken = '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';
+    const accessToken = '';
     // URL for updating a Gist
     const updateUrl = `https://api.github.com/gists/${gistId}`;
 

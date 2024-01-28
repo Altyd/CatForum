@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forum-container,
+.thread-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #444;
+    border-radius: 8px;
+}
+
+.threads {
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+h1, h3 {
+    margin: 0;
+}
+
+.thread-content {
+    margin-top: 20px;
+}
+
+.replies {
+    margin-top: 20px;
+    background-color: #333; /* Change this to the desired gray background color */
+    padding: 10px; /* Add padding for better appearance */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+}
+.categories h2:hover {
+    color: #333; /* Change to desired hover color */
+}
+.threads a:hover {
+    color: #0f4; /* Change to desired hover color */
+}
+.reply {
+    border: 1px solid #555;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.reply-form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.submit-reply {
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-reply:hover {
+    background-color: #0f4;
+}
+        .forum-box {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            animation: rotate 5s linear infinite, fadeInUp 1s forwards;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+/* Add more styles as needed */
+.buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.buttons a {
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.buttons button {
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #0f4;
+}
