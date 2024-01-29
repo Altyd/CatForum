@@ -41,7 +41,7 @@
 async function updateGist() {
     // Specify your Gist ID and GitHub token
     const gistId = 'baf0e63608ec96905283d15949cb3271';
-    const accessToken = '';
+    const accessToken = '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';
     // URL for updating a Gist
     const updateUrl = `https://api.github.com/gists/${gistId}`;
 

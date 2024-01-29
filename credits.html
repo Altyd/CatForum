@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your animations and styles for the credits here */
+        .credits-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .credit-item {
+            margin: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .credit-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <title>WeCAT Forum - Credits</title>
+</head>
+<body>
+
+<div class="forum-container">
+    <h1>WeCAT Forum</h1>
+    <div class="container">
+        <!-- Your existing forum content here -->
+    </div>
+    <div class="buttons">
+        <a href="https://github.com/Altyd/CatForum"><button>Github</button></a>
+    </div>
+    
+    <div class="categories">
+        <!-- Your existing category and thread sections here -->
+    </div>
+</div>
+
+<!-- Credits Section -->
+<div class="credits-container">
+    <!-- Add more credit items as needed -->
+
+    <!-- Add animations to credit items using JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var creditItems = document.querySelectorAll('.credit-item');
+
+            setTimeout(function () {
+                creditItems.forEach(function (item, index) {
+                    setTimeout(function () {
+                        item.classList.add('show');
+                    }, index * 200); // Adjust the delay as needed
+                });
+            }, 500); // Adjust the initial delay as needed
+        });
+    </script>
+</div>
+
+<script>
+    // Your existing JavaScript functions here
+</script>
+
+</body>
+</html>
